@@ -1,0 +1,280 @@
+body{
+    
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+}
+.table_sugar_container {
+    display: grid;
+    grid-template-rows: 1fr;
+    position: relative;
+    /* overflow: hidden; */
+    box-sizing: border-box;
+
+}
+table {
+    background-color: rgb(192, 169, 214);
+    background-color: white;
+    border: 5px solid rgb(25, 28, 22);  /* граница всей таблицы */
+    border-radius: 6px;
+    padding: 2px;
+    margin: 10px;
+    width: 100%;
+}
+tr {
+    
+    border: 2px solid rgb(227, 239, 213);  /* границы между строками */
+}
+td, th {
+    text-align: center;
+    align-items: center;
+    padding: 4px;
+    width: 4%;
+    border: 2px solid rgb(25, 28, 22);  /* границы между столбцами */
+    border-radius: 2px;
+}
+.select {
+    display: block;
+    width: 100%; /* от ширины блока div */
+    padding: .75rem 2.5rem .75rem 1rem;/* отступы от текста до рамки */
+    background: none; /* убираем фон */
+    border: 1px solid #ccc; /* рамка */
+    border-radius: 6px;/* скругление полей формы */
+    -webkit-appearance: none;/* Chrome */
+    -moz-appearance: none;/* Firefox */
+    appearance: none;/* убираем дефолнтные стрелочки */
+    font-family: inherit;/* наследует от родителя */
+    font-size: 1rem;
+    color: #444;
+}
+.select:after {
+    content: " url(https://www.pngplay.com/wp-content/uploads/13/Arrow-Down-PNG-Clipart-Background.png) ";
+    display: block;
+    border-style: solid;
+    border-width: 6px 5px 0 5px;
+    border-color: #000 transparent transparent transparent;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    z-index: 1;
+    margin-top: -3px;
+}
+.essenceDate{
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    align-items: center;
+    justify-items: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #3F51B5;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px 10px;
+}
+.essenceDate p{
+    
+    
+    display: flex;
+    
+    margin-left: 5px;
+    margin-left: auto;
+}
+.PersonalData{
+    display: grid;
+    grid-template-columns: 40ch;
+    grid-template-rows: 7ch 7ch;
+    margin: 10px;
+    padding: 5px;
+    margin: 10px 20px;
+}
+
+
+.typeMeasurement{
+    margin: 0;
+    /* writing-mode: vertical-lr; */
+}
+.LoginH
+{
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+.DivTabelHeart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    height: 100px;
+    
+}
+.DivTabelHeartTd{
+    padding: 10px,10px;
+    margin: 10px;
+    
+}
+.DivBoardTime{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.BeadRad{
+    background-color: rgb(236, 72, 72, 0.7);
+}
+.gradientRadGreen{
+    background: linear-gradient(to right, rgb(236, 72, 72, 0.7) 85%, rgb(77, 236, 72, 0.7));
+}
+.gradientGreenRad{
+    background: linear-gradient(to left, rgb(236, 72, 72, 0.7) 85%, rgb(77, 236, 72, 0.7));
+}
+.GoodGrean{
+    background-color: #48f786;
+    background-color: rgb(77, 236, 72, 0.7);
+}
+.BoardTimeLine{
+    background-color:  rgb(187, 159, 198);
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid rgb(137, 102, 171);
+    /* position: relative;  */
+    z-index: 0;
+    margin: 0px;
+    
+    width: 100%;
+    height: 720px;
+    box-sizing: border-box;
+    padding: 10px;
+    padding-top: 25px;
+
+}
+
+.buttonSendDiv{
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
+input{
+    border-radius: 6px;
+    padding:10px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    width: 250px;
+    
+}
+input[type = "date"]{
+    border: none;
+    text-align: center;
+}
+.buttonSend{
+      /* remove default behavior */
+    appearance:none;
+    -webkit-appearance:none;
+    /* usual styles */
+
+    padding:15px;
+    margin-top: 10px;
+    margin-bottom:20px ;
+    border:none;
+    background-color:#3F51B5;
+    color:#fff;
+    font-weight:600;
+    border-radius:5px;
+    width:100%;
+}
+.menu{
+    height: 9%;
+    display: flex;
+    justify-content: right;
+}
+.btnTabel {
+    /* по-умолчанию для <button>, но пригодится для <a> */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    text-size-adjust: 1px;
+    padding: 10px, 0px;
+    /* создаём маленькие отступы, если кнопки перенесутся на две строки */
+    
+    /* невидимая граница (понадобится для цвета при наведении/фокусе) */
+    border: solid 1px transparent;
+    border-radius: 2px;
+    vertical-align: c;
+    width: 100%;
+    color: #ffffff;
+    background-color: #9555af;
+}
+
+    /* олдскульный эффект «нажатия» + цветовые правки */
+.btnTabel:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+}
+
+    /* инвертируем цвета при наведении и фокусе */
+.btnTabel:hover {
+    color: #9555af;
+    border-color: currentColor;
+    background-color: white;
+}
+.btn {
+    /* по-умолчанию для <button>, но пригодится для <a> */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    
+    /* создаём маленькие отступы, если кнопки перенесутся на две строки */
+    margin: 7px;
+    margin-right: 20px;
+    margin-top: 10px;
+    
+    /* невидимая граница (понадобится для цвета при наведении/фокусе) */
+    border: solid 1px transparent;
+    border-radius: 10px;
+    font-size: 20px;
+    vertical-align: c;
+    width: 10%;
+    color: #ffffff;
+    background-color: #9555af;
+}
+
+    /* олдскульный эффект «нажатия» + цветовые правки */
+.btn:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+}
+
+    /* инвертируем цвета при наведении и фокусе */
+.btn:hover {
+    color: #9555af;
+    border-color: currentColor;
+    background-color: white;
+}
+
+
+.loginCenter {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:  0px;
+    background-color: rgb(192, 169, 214);
+    
+}
+.loginStyle{
+    background-color: rgb(227, 239, 213);
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 15px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}

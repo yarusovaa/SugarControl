@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/login.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="loginCenter">
+        
+        <div class="loginStyle">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="LoginH">
+                    <h3>Уровень сахара</h3>
+                </div>
+                <div class="questionLogin">
+                    Дата:
+                    <p style="margin-top: 2px;"><input name="datetime" type="date" value={{datatime}} required></p>
+                </div>
+                <div class="questionLogin">
+                    Уровень сахара:
+                    <p style="margin-top: 2px;"><input name="dataMeasurement" step=0.1 type="number" value=6 required></p>
+                </div>
+                <div class="questionLogin">
+                    <select name="TypeMeasurement" class = "select" value = {{typeMeasurment}} required>
+                        <option value="1" {%if typeMeasurment == 1%} selected {%endif%}>Завтрак до еды</option>
+                        <option value="2" {%if typeMeasurment == 2%} selected {%endif%}>Завтрак после еды</option>
+                        <option value="3" {%if typeMeasurment == 3%} selected {%endif%}>Обед до еды</option>
+                        <option value="4" {%if typeMeasurment == 4%} selected {%endif%}>Обед после еды</option>
+                        <option value="5" {%if typeMeasurment == 5%} selected {%endif%}>Ужин до еды</option>
+                        <option value="6" {%if typeMeasurment == 6%} selected {%endif%}>Ужин после еды</option>
+                        <option value="7" {%if typeMeasurment == 7%} selected {%endif%}>Перед сном</option>
+                    </select>
+                </div>
+                <div class="buttonSendDiv">
+                    <input type="submit" value="Отправить" class="buttonSend">
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</body>
+</html>

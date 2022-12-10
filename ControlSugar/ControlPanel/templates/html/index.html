@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/login.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="menu">
+        <a class="btn" href="/output/">Выход</a>
+    </div>
+    <div class="loginCenter">
+        <div class="loginStyle">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="LoginH">
+                    <h3>Выбор даты</h3>
+                </div>
+                <div class="questionLogin">
+                    Дата:
+                    <p style="margin-top: 2px;"><input name="datetime" type="date" value={{datatime}} required></p>
+                </div>
+                <!--
+                <div class="questionLogin">
+                    Количество дней:
+                    <p style="margin-top: 2px;"><input name="" step=1 type="number" value=6 required></p>
+                </div>
+                -->
+                <div class="buttonSendDiv">
+                    <input type="submit" value="Показать" class="buttonSend">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

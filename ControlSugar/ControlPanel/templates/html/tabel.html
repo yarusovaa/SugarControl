@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+
+    {%if alert == 1%}
+    <script async>
+      alert("Уровень глюкозы в крови выше нормы, рекомендуем посетить врача")
+    </script>
+    {%elif alert == -1%}
+    <script async>
+      alert("Уровень глюкозы в крови ниже нормы, рекомендуем посетить врача")
+    </script>
+    {%endif%}
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link href='/static/css/style.css' rel='stylesheet' type='text/css'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+</head>
+<body>
+    <div class="PersonalData">
+      <div class="essenceDate">
+        <h3>Имя:</h3>
+        <p>{{Person.Name}} {{Person.Surname}}</p>
+      </div>
+      <div class="essenceDate">
+        <h3>Дата рождения:</h3>
+        <p>{{Person.Birthday|date}}</p>
+      </div>
+    </div>
+    <div class="table_sugar_container"><table>
+        <tbody>
+          <tr>
+            <th>Дата</th>
+            <th colspan='7'>{{Dates|date:'d.m.Y'}}</th>
+<!--
+            <th colspan='7'>{{Dates.1|date:'d.m.Y'}}</th>
+
+            <th colspan='7'>{{Dates.2|date:'d.m.Y'}}</th> -->
+
+          </tr>
+          <tr class="typeMeasurement">
+            <td>Время</td>
+
+            <th>Натощак(до завтрака)</th>
+            <th>Через 2 часа после завтрака</th>
+            <th>Перед обедом</th>
+            <th>Через 2 часа после обеда</th>
+            <th>Перед ужином</th>
+            <th>Через 2 часа после ужина</th>
+            <th>Перед сном</th>
+
+          </tr>
+          <tr>
+            <td></td>
+            {%for Measurement in listMeasurement%}
+            <td>{{Measurement|floatformat}}</td>
+            {%endfor%}
+
+          </tr >
+          <tr class="typeMeasurement">
+            <td></td>
+            <td><a class='btnTabel'  href='/add/{{Dates|date:"Y-m-d"}}/1'>Исправить</a></td>
+            <td><a class='btnTabel'  href='/add/{{Dates|date:"Y-m-d"}}/2'>Исправить</a></td>
+            <td><a class='btnTabel'  href='/add/{{Dates|date:"Y-m-d"}}/3'>Исправить</a></td>
+            <td><a class='btnTabel'  href='/add/{{Dates|date:"Y-m-d"}}/4'>Исправить</a></td>
+            <td><a class='btnTabel'  href='/add/{{Dates|date:"Y-m-d"}}/5'>Исправить</a></td>
+            <td><a class='btnTabel'  href='/add/{{Dates|date:"Y-m-d"}}/6'>Исправить</a></td>
+            <td><a class='btnTabel'  href='/add/{{Dates|date:"Y-m-d"}}/7'>Исправить</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      </div>
+
+      <div class="DivBoardTime">
+        <canvas id="TimeLine" class="BoardTimeLine" height="550">
+          <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+          <script>
+
+            window.onload = function () {
+              var dataS = []
+              {% for Measurement in listMeasurement %}
+                dataS.push(parseFloat("{{Measurement}}".replace(/\,/g, '.')));
+                console.log(parseFloat("{{Measurement}}".replace(/\,/g, '.')));
+              {% endfor %}
+              const len = dataS.length
+
+              var labelsS = ["Натощак(до завтрака)", "Через 2 часа после завтрака",
+                              "Перед обедом", "Через 2 часа после обеда","Перед ужином",
+                              "Через 2 часа после ужина","Перед сном"];
+              var label2 = ["date1","date2","date3"]
+
+
+              const data = {
+                labels: labelsS,
+                plugins: {
+                  legend: true,
+                },
+                datasets: [
+                  {
+                    label: 'Мах',
+                    data: Array(len).fill(17),
+                    backgroundColor: 'rgba(255,0,0,0.1)',
+                    pointRadius: 0,
+                    borderColor: 'rgba(255,0,0,0)',
+
+                    fill: '3',
+                    tension: 0
+                  },
+
+                  {
+                    label: 'мин',
+                    data: [0],
+                    backgroundColor: 0,
+                    pointRadius: 0,
+                    borderColor: 'Indigo',
+
+                    fill: false
+                  },
+                  {
+                    label: 'Уровень нормы',
+                    data: Array(len).fill(4.4),
+                    backgroundColor: 'rgba(255,0,0,0.1)',
+                    borderColor: 'red',
+                    pointRadius: 0,
+
+                    fill: true
+                  },
+                  {
+                    label: 'Уровень нормы',
+                    data: Array(len).fill(7.6),
+                    backgroundColor: 0,
+                    pointHitRadius: 0,
+                    borderColor: 'red',
+
+                    pointRadius: 0,
+                    fill: false
+
+                  },
+                  {
+                    label: 'Уровень сахара',
+                    data: dataS,
+                    backgroundColor: 0,
+                    borderColor: 'Indigo',
+                    fill: false,
+
+                    tension: 0
+
+                  },
+
+                  {
+                    type: 'bar',
+                    barPercentage: 0.5,
+                    barThickness: 6,
+                    maxBarThickness: 8,
+                    minBarLength: 2,
+                    borderColor: 'black',
+                    data: [0, 0, 0, 0, 0, 0, 60, 0, 0, 0, 0, 0, 60, 0,0, 0, 0, 0, 0, 0, 0]
+                  },
+
+                ]
+              };
+              const config = {
+                type: 'line',
+                data: data,
+                options: {
+                  responsive: false,
+                  plugins: {
+                    legend: false,
+                    title: {
+                      display: true,
+                      text: 'График уровня сахара за 3 дня'
+                    }
+                  },
+                  scales: {
+
+                    yAxes: [{
+                            display: true,
+                            ticks: {
+                                max: 17,
+                                min: 0
+                            }
+                        }]
+                  }
+                },
+
+              };
+              Chart.defaults.global.defaultFontColor = "Black";
+              var can = document.getElementById('TimeLine');
+
+
+              var ctx = can.getContext('2d');
+              window.myLine = new Chart(ctx, config);
+
+            };
+            var can = document.getElementById('TimeLine');
+
+            </script>
+        </canvas>
+        <div class="table_sugar_container">
+          <table>
+            <tr>
+              <th colspan='9'>Диапазон значений уровня сахара крови</th>
+            </tr>
+            <tr>
+              <th colspan='2'>Слишком высокий:</th>
+              <th colspan='2'>Норма:</th>
+              <th colspan='5'>Слишком высокий:</th>
+            </tr>
+            <tr>
+              <td class = "BeadRad"> < 2.8 ммоль/литр</td>
+              <td class = "gradientRadGreen">2.8-4.4 ммоль/л</td>
+              <td class = "GoodGrean">4.5-6.0 ммоль/л</td>
+              <td class = "GoodGrean">6.1-7.5 ммоль/л</td>
+              <td class = "gradientGreenRad">7.6-10.0 ммоль/л</td>
+              <td class = "BeadRad">10.1-12.2 ммоль/л</td>
+              <td class = "BeadRad">12.3-14.4 ммоль/л</td>
+              <td class = "BeadRad">14.5-16.7 ммоль/л</td>
+              <td class = "BeadRad"> > 16.7 ммоль/л</td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/login.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="loginCenter">
+        <div class="loginStyle">
+            <form action="\singup\" method="post" class="loginStyle">
+                {% csrf_token %}
+                <div class="LoginH">
+                    <h3>Вход в аккаунт</h3>
+                </div>
+                <div class="questionLogin">
+                    Логин:
+                    <p style="margin-top: 2px;"><input name="login" type="text" required ></p>
+                </div>
+                <div class="questionLogin">
+                    Имя:
+                    <p style="margin-top: 2px;"><input name="name" type="text" required></p>
+                </div>
+                <div class="questionLogin">
+                    Фамилия:
+                    <p style="margin-top: 2px;"><input name="surname" type="text" required></p>
+                </div>
+                <div class="questionLogin">
+                    Дата рождения:
+                    <p style="margin-top: 2px;"><input name="birthday" type="date" required></p>
+                </div>
+                <div class="questionLogin">
+                    Пароль:
+                    <p style="margin-top: 2px;"><input name="password" type="password"required></p>
+                </div>
+                <div class="questionLogin">
+                    повторите пароль:
+                    <p style="margin-top: 2px;"><input name="twoPassword" type="password"required ></p>
+                </div>
+                <div class="buttonSendDiv">
+                    <input type="submit" value="Вход" class="buttonSend">
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</body>
+</html>

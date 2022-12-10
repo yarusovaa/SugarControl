@@ -1,0 +1,75 @@
+
+
+Mon Dec  5 02:32:12 2022
+Command line: TestDisk
+
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 6.0.9-300.fc37.x86_64 (#1 SMP PREEMPT_DYNAMIC Wed Nov 16 17:36:22 UTC 2022) x86_64
+Compiler: GCC 12.1
+ext2fs lib: 1.46.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: 20140608, curses lib: ncurses 6.3
+/dev/sda: LBA, HPA, LBA48, DCO support
+/dev/sda: size       976773168 sectors
+/dev/sda: user_max   976773168 sectors
+/dev/sda: native_max 976773168 sectors
+/dev/sda: dco        976773168 sectors
+/dev/sdb: LBA, LBA48 support
+/dev/sdb: size       468862128 sectors
+/dev/sdb: user_max   468862128 sectors
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 0 sectors, sector size=512
+Hard disk list
+Disk /dev/sda - 500 GB / 465 GiB - CHS 60801 255 63, sector size=512 - WDC WD5000LPCX-21VHAT0, S/N:WD-WXH1EA6H4ETV, FW:01.01A01
+Disk /dev/sdb - 240 GB / 223 GiB - CHS 29185 255 63, sector size=512 - ADATA SU650NS38, S/N:2L502L18GAGY, FW:N200409d
+Disk /dev/sdc - 16 GB / 14 GiB - CHS 15295 64 32, sector size=512 - Kingston DT 101 G2, FW:1.00
+Disk /dev/loop0 - 52 MB / 49 MiB - 101664 sectors (RO), sector size=512
+Disk /dev/loop1 - 96 MB / 91 MiB - 187776 sectors (RO), sector size=512
+Disk /dev/loop2 - 76 MB / 72 MiB - 149072 sectors (RO), sector size=512
+Disk /dev/loop3 - 387 MB / 369 MiB - 756088 sectors (RO), sector size=512
+Disk /dev/loop4 - 4096 B - 8 sectors (RO), sector size=512
+Disk /dev/loop5 - 52 MB / 49 MiB - 101624 sectors (RO), sector size=512
+Disk /dev/loop6 - 66 MB / 63 MiB - 129520 sectors (RO), sector size=512
+Disk /dev/loop7 - 418 MB / 399 MiB - 818008 sectors (RO), sector size=512
+
+Partition table type (auto): None
+Disk /dev/sdc - 16 GB / 14 GiB - Kingston DT 101 G2
+Partition table type: Intel
+
+Analyse Disk /dev/sdc - 16 GB / 14 GiB - CHS 15295 64 32
+Current partition structure:
+No partition is bootable
+
+search_part()
+Disk /dev/sdc - 16 GB / 14 GiB - CHS 15295 64 32
+
+Results
+
+interface_write()
+ 
+No partition found or selected for recovery
+
+search_part()
+Disk /dev/sdc - 16 GB / 14 GiB - CHS 15295 64 32
+FAT32 at 0/0/7
+FAT1 : 32-15327
+FAT2 : 15328-30623
+start_rootdir : 30624 root cluster : 2
+Data : 30624-31324159
+sectors : 31324160
+cluster_size : 16
+no_of_cluster : 1955846 (2 - 1955847)
+fat_length 15296 calculated 15281
+set_FAT_info: name from BS used
+
+FAT32 at 0/0/7
+FAT: cluster=2(0x2), pos=30624
+     FAT32 LBA                0   0  1 15294  63 32   31324160 [NO NAME]
+     FAT32, blocksize=8192, 16 GB / 14 GiB
+Partition not added.
+
+Results
+Can't open backup.log file: Нет такого файла или каталога
+interface_load
+Can't open backup.log file: Нет такого файла или каталога
+interface_load
+SIGINT detected! TestDisk has been killed.
